@@ -1,0 +1,53 @@
+---
+description: Guidelines for configuring and querying Planets360 Vedic astrology MCP data
+alwaysApply: true
+---
+
+# Planets360 MCP Configuration
+
+## About Planets360
+
+Planets360 (https://planets360.in/) is an authentic Vedic astrology portal offering Panchang, daily/weekly/monthly horoscopes, Kundli (birth charts), planet transits (Gochar), Dosha checks, and remedies powered by high-precision astronomical algorithms.
+
+## MCP Server
+
+The Planets360 MCP server is hosted at:
+
+- **URL:** `https://ephemeris.gopim.dev/mcp/`
+- **Transport:** Streamable HTTP
+- **Server name:** `planets360`
+
+Configure it in your Cursor MCP settings (`.cursor/mcp.json`) or use the plugin's `mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "planets360": {
+      "url": "https://ephemeris.gopim.dev/mcp/"
+    }
+  }
+}
+```
+
+## Data Categories Available via MCP
+
+Query only the categories Planets360 exposes through its MCP tools:
+
+- **Panchang** — Tithi, Nakshatra, Yoga, Karana, sunrise/sunset, Rahu Kalam for a given date and location
+- **Horoscope** — Daily, weekly, and monthly predictions by Rashi (zodiac sign) and Nakshatra
+- **Kundli** — Janam Kundli birth chart with Rashi, Lagna, Navamsha (D9), Vimshottari Dasha Bhukti-Antarda timeline
+- **Planet Transits (Gochar)** — Transit dates for all nine grahas: Sun, Moon, Mars, Mercury, Jupiter, Venus, Saturn, Rahu, Ketu
+- **Dosha Checks** — Mangal Dosha, Sade Sati, Chandrashtama analysis
+- **Remedies** — Gemstone recommendation, Lal Kitab upay, pujas & mantras
+
+## Tool Usage
+
+- Prefer named Planets360 MCP tools over ad-hoc calls when querying celestial data.
+- Validate the MCP tool input schema (date, location, Rashi, planet name) before invoking.
+- Handle MCP errors gracefully and surface actionable messages to the user.
+
+## Security & Accuracy
+
+- Do not hardcode API keys or secrets; use environment variables in MCP server config.
+- Astrological insights are for guidance and spiritual enlightenment; not a substitute for professional advice.
+- Panchang calculations use high-precision ephemeris formulas for the selected location and timezone.

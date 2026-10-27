@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "planets360": {
+      "url": "https://ephemeris.gopim.dev/mcp/"
+    }
+  }
+}

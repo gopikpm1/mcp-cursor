@@ -1,0 +1,15 @@
+{
+  "name": "planets360-mcp",
+  "displayName": "Planets360 MCP",
+  "version": "0.1.0",
+  "description": "Cursor MCP plugin for querying Planets360 Vedic astrology data — Panchang, horoscopes, Kundli, transits, Dosha checks, and remedies.",
+  "author": {
+    "name": "Gopi M",
+    "email": "contact@gopim.dev"
+  },
+  "license": "MIT",
+  "keywords": ["planets360", "vedic-astrology", "panchang", "kundli", "horoscope", "transits", "mcp", "astrology"],
+  "logo": "assets/logo.svg",
+  "homepage": "https://planets360.in/",
+  "mcpServers": "mcp.json"
+}
