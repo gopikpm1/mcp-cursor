@@ -1,34 +1,34 @@
-# Cursor plugin template
+# Planets360 MCP — Cursor Plugin
 
-Build and publish Cursor Marketplace plugins from a single repo.
+Cursor MCP plugin for **Planets360** (https://planets360.in/) — an authentic Vedic astrology platform by Gopi M (https://gopim.dev/).
 
-Two starter plugins are included:
+This plugin provides rules and skills to query Planets360 data through an MCP server, including Panchang, daily/weekly/monthly horoscopes, Kundli (birth charts), planet transits (Gochar), Dosha checks, and remedies.
 
-- **starter-simple**: rules and skills only
-- **starter-advanced**: rules, skills, agents, commands, hooks, MCP, and scripts
+## MCP Server
 
-## Getting started
+- **URL:** `https://ephemeris.gopim.dev/mcp/`
+- **Transport:** Streamable HTTP
+- **Server name:** `planets360`
 
-[Use this template](https://github.com/cursor/plugin-template/generate) to create a new repository, then customize:
+Configured in `plugins/planets360-mcp/mcp.json` and referenced from `plugins/planets360-mcp/.cursor-plugin/plugin.json`.
 
-1. `.cursor-plugin/marketplace.json`: set marketplace `name`, `owner`, and `metadata`.
-2. `plugins/*/.cursor-plugin/plugin.json`: set `name` (lowercase kebab-case), `displayName`, `author`, `description`, `keywords`, `license`, and `version`.
-3. Replace placeholder rules, skills, agents, commands, hooks, scripts, and logos.
+## Included
 
-To add more plugins, see `docs/add-a-plugin.md`.
+- `plugins/planets360-mcp/rules/mcp-configuration.mdc` — Vedic astrology data querying guidelines (always applied)
+- `plugins/planets360-mcp/skills/planets-query/SKILL.md` — skill for querying Planets360 celestial data via MCP
+- `plugins/planets360-mcp/mcp.json` — Planets360 MCP server connection config
+- `plugins/planets360-mcp/assets/logo.svg` — plugin logo
 
-## Single plugin vs multi-plugin
+## Prerequisites
 
-This template defaults to **multi-plugin** (multiple plugins in one repo).
+The Planets360 MCP server (`https://ephemeris.gopim.dev/mcp/`) must be reachable and added to your Cursor MCP settings before using the `planets-query` skill.
 
-For a **single plugin**, move your plugin folder contents to the repository root, keep one `.cursor-plugin/plugin.json`, and remove `.cursor-plugin/marketplace.json`.
+See `plugins/planets360-mcp/rules/mcp-configuration.mdc` for setup guidance.
 
-## Submission checklist
+## Validation
 
-- Each plugin has a valid `.cursor-plugin/plugin.json`.
-- Plugin names are unique, lowercase, and kebab-case.
-- `.cursor-plugin/marketplace.json` entries map to real plugin folders.
-- All frontmatter metadata is present in rule, skill, agent, and command files.
-- Logos are committed and referenced with relative paths.
-- `node scripts/validate-template.mjs` passes.
-- Repository link is ready for submission to the Cursor team (Slack or `kniparko@anysphere.com`).
+```bash
+node scripts/validate-template.mjs
+```
+
+Fix all reported errors before committing.
